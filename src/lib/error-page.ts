@@ -1,0 +1,1 @@
+export function renderErrorPage() { return "<h1>Error</h1>"; }

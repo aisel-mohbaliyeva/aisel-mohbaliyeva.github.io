@@ -1,0 +1,1 @@
+export function reportLovableError(_e: Error, _c?: object) {}
