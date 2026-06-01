@@ -23,7 +23,10 @@ export const Route = createFileRoute("/")({
   component: Portfolio,
 });
 
-const shot = (n: number) => `/screenshots/${n}.png`;
+const bankShot  = (n: number) => `/screenshots/AZBankMate/${n}.png`;
+const cryptoShot = (n: number) => `/screenshots/CryptoTrack/${n}.png`;
+const steplyShot = (n: number) => `/screenshots/Steply/${n}.png`;
+const discShot   = (n: number) => `/screenshots/DiscountHelper/${n}.png`;
 
 type Project = {
   id: string;
@@ -43,7 +46,7 @@ const featured1: Project = {
     "An iOS application designed to compare banking products across Azerbaijani banks. Users can compare mortgage, credit, deposit, debit/miles cards and cashback offers, track real-time CBAR exchange rates, and save favorite banks.",
   tags: ["Swift", "SwiftUI", "MVVM", "MapKit", "URLSession", "@Observable"],
   github: "https://github.com/aisel-mohbaliyeva/AZBankMate",
-  images: [1, 2, 3, 4, 5, 6].map(shot),
+  images: [1,2,3,4,5,6].map(bankShot),
 };
 
 const featured2: Project = {
@@ -54,7 +57,7 @@ const featured2: Project = {
     "Live prices for the top 50 cryptocurrencies with 7-day sparkline charts, favorites and a personal portfolio tracker. Powered by the CoinGecko API and built with Combine.",
   tags: ["SwiftUI", "Swift Charts", "Combine", "URLSession"],
   github: "https://github.com/aisel-mohbaliyeva/Crypto-Track_API",
-  images: [7, 8, 9, 10].map(shot),
+  images: [7,8,9,10].map(cryptoShot),
 };
 
 const showcase: Project[] = [
@@ -66,7 +69,7 @@ const showcase: Project[] = [
       "Step tracker built on HealthKit. Animated progress ring, weekly bar chart, and achievement awards that unlock by step count milestones.",
     tags: ["SwiftUI", "HealthKit", "Swift Charts", "@Observable"],
     github: "https://github.com/aisel-mohbaliyeva/Steply",
-    images: [11, 12, 13].map(shot),
+    images: [11,12,13].map(steplyShot),
   },
   {
     id: "discounthelper",
@@ -76,15 +79,14 @@ const showcase: Project[] = [
       "Discount calculator with 5 currencies, calculation history, share sheet, spring animations and haptic feedback. Persistence via UserDefaults.",
     tags: ["SwiftUI", "Combine", "MVVM", "UserDefaults"],
     github: "https://github.com/aisel-mohbaliyeva/DiscountHelper",
-    images: [14, 15, 16].map(shot),
+    images: [14,15,16,17].map(discShot),
   },
 ];
 
 function PhoneImg({ src }: { src: string }) {
   const [failed, setFailed] = useState(false);
-  if (failed) return <div className="vm-phone-empty" />;
-  return <img src={src} alt="screenshot" loading="lazy" onError={() => setFailed(true)} />;
-}
+  if (failed) return <div className="vm-ss-empty" />;
+  return <img src={src}
 
 function Slider({ images }: { images: string[] }) {
   const [idx, setIdx] = useState(0);
@@ -113,10 +115,7 @@ function Slider({ images }: { images: string[] }) {
       <div className="vm-slider-track" style={{ transform: `translateX(-${idx * 100}%)` }}>
         {images.map((src, i) => (
           <div className="vm-slide" key={i}>
-            <div className="vm-phone">
-              
-              <PhoneImg src={src} />
-            </div>
+            <PhoneImg src={src} />
           </div>
         ))}
       </div>
@@ -141,10 +140,7 @@ function ShowcaseItem({ p }: { p: Project }) {
       <div className="vm-show-gallery">
         {p.images.slice(0, 3).map((src, i) => (
           <div key={i} className={`vm-show-phone vm-show-phone-${i}`}>
-            <div className="vm-phone vm-phone-sm">
-              
-              <PhoneImg src={src} />
-            </div>
+            <PhoneImg src={src} />
           </div>
         ))}
       </div>
@@ -454,7 +450,7 @@ html{scroll-behavior:smooth}
 .vm-feature-slider{display:flex;justify-content:center;align-items:center;padding:24px}
 
 /* SLIDER */
-.vm-slider{position:relative;width:100%;max-width:300px;overflow:hidden;padding:0 36px}
+.vm-slider{position:relative;width:100%;max-width:420px;overflow:hidden;padding:0 40px}
 .vm-slider-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.2);border:none;width:36px;height:36px;border-radius:999px;color:#fff;cursor:pointer;z-index:5;display:flex;align-items:center;justify-content:center;transition:all .2s}
 .vm-slider-btn:hover{background:rgba(0,0,0,.45);transform:translateY(-50%) scale(1.1)}
 .vm-slider-btn svg{width:18px;height:18px}
@@ -466,13 +462,10 @@ html{scroll-behavior:smooth}
 .vm-dot{width:7px;height:7px;border-radius:999px;background:rgba(255,255,255,.4);border:none;padding:0;cursor:pointer;transition:all .2s}
 .vm-dot.on{background:#fff;transform:scale(1.4)}
 
-/* PHONE */
-.vm-phone{position:relative;width:220px;aspect-ratio:9/19;background:#000;border-radius:32px;padding:6px;box-shadow:0 20px 50px -10px rgba(0,0,0,.4),0 0 0 2px rgba(255,255,255,.08) inset;overflow:hidden}
-.vm-phone-sm{width:170px;border-radius:26px}
-.vm-phone img{width:100%;height:108%;object-fit:cover;object-position:top center;border-radius:26px;display:block;margin-top:-8%;}
-.vm-phone-sm img{border-radius:20px;object-position:top center;width:100%;height:108%;margin-top:-8%;}
-
-.vm-phone-empty{width:100%;height:100%;background:linear-gradient(135deg,#3a3a3c,#1c1c1e);border-radius:26px}
+/* SCREENSHOT */
+.vm-ss-empty{width:100%;background:#f0f0f0;border-radius:16px}
+.vm-slide img{width:100%;display:block;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.15)}
+.vm-show-phone img{width:100%;display:block;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.12)}
 
 .vm-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .vm-tags span{font-size:11px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,.08);text-transform:uppercase;letter-spacing:.06em;font-weight:700}
@@ -484,7 +477,7 @@ html{scroll-behavior:smooth}
 .vm-show-item{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center;max-width:1100px;margin:0 auto 80px;opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.2,.7,.2,1)}
 .vm-show-item.on{opacity:1;transform:none}
 .vm-show-gallery{position:relative;height:380px;display:flex;justify-content:center;align-items:center}
-.vm-show-phone{position:absolute;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.vm-show-phone{position:absolute;width:160px;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .vm-show-phone-0{transform:translate(-90px,0) rotate(-8deg);z-index:1}
 .vm-show-phone-1{transform:translate(0,-10px) rotate(0deg);z-index:3}
 .vm-show-phone-2{transform:translate(90px,0) rotate(8deg);z-index:2}
@@ -528,9 +521,7 @@ html{scroll-behavior:smooth}
   .vm-header-btn{top:16px;left:16px;width:50px;height:50px}
   .vm-header-bg{top:22px;left:22px}
   .vm-hero-img{width:130px;height:130px}
-  .vm-phone{width:190px}
-  .vm-phone-sm{width:140px}
-  .vm-show-phone-0{transform:translate(-50px,0) rotate(-6deg)}
+      .vm-show-phone-0{transform:translate(-50px,0) rotate(-6deg)}
   .vm-show-phone-2{transform:translate(50px,0) rotate(6deg)}
   .vm-showcase,.vm-about{padding:60px 20px}
   .vm-show-item{margin-bottom:60px}
