@@ -9,13 +9,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "My name is Aysel, I'm from Baku and I'm an iOS Developer building real Swift & SwiftUI apps: AZ BankMate, CryptoTrack, Steply, DiscountHelper.",
+          "iOS Developer building mobile applications with Swift and SwiftUI. Started programming in 2025, focused on iOS development.",
       },
       { property: "og:title", content: "Portfolio — Aysel Mohbaliyeva, iOS Developer" },
       {
         property: "og:description",
         content:
-          "iOS Developer from Baku. Swift & SwiftUI. 4 shipped apps: banking, crypto, fitness, utility.",
+          "iOS Developer. Swift & SwiftUI. 4 shipped apps: banking, crypto, fitness, utility.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -66,7 +66,7 @@ const showcase: Project[] = [
       "Step tracker built on HealthKit. Animated progress ring, weekly bar chart, and achievement awards that unlock by step count milestones.",
     tags: ["SwiftUI", "HealthKit", "Swift Charts", "@Observable"],
     github: "https://github.com/aisel-mohbaliyeva/Steply",
-    images: [11, 12, 13, 14].map(shot),
+    images: [11, 12, 13].map(shot),
   },
   {
     id: "discounthelper",
@@ -76,7 +76,7 @@ const showcase: Project[] = [
       "Discount calculator with 5 currencies, calculation history, share sheet, spring animations and haptic feedback. Persistence via UserDefaults.",
     tags: ["SwiftUI", "Combine", "MVVM", "UserDefaults"],
     github: "https://github.com/aisel-mohbaliyeva/DiscountHelper",
-    images: [15, 16, 17, 18].map(shot),
+    images: [14, 15, 16].map(shot),
   },
 ];
 
@@ -114,7 +114,7 @@ function Slider({ images }: { images: string[] }) {
         {images.map((src, i) => (
           <div className="vm-slide" key={i}>
             <div className="vm-phone">
-              <span className="vm-phone-notch" />
+              
               <PhoneImg src={src} />
             </div>
           </div>
@@ -142,7 +142,7 @@ function ShowcaseItem({ p }: { p: Project }) {
         {p.images.slice(0, 3).map((src, i) => (
           <div key={i} className={`vm-show-phone vm-show-phone-${i}`}>
             <div className="vm-phone vm-phone-sm">
-              <span className="vm-phone-notch" />
+              
               <PhoneImg src={src} />
             </div>
           </div>
@@ -281,7 +281,7 @@ function Portfolio() {
           <img className="vm-hero-img" src={memoji} alt="Aysel Mohbaliyeva" />
           <div className="vm-hero-text">
             <h1>Aysel Mohbaliyeva</h1>
-            <span>iOS Developer · Baku, Azerbaijan</span>
+            <span>iOS Developer</span>
           </div>
         </div>
         <div className="vm-hero-cta">
@@ -345,10 +345,8 @@ function Portfolio() {
         <div className="vm-about-inner">
           <h2>About Aysel</h2>
           <p>
-            I'm Aysel — an iOS Developer from Baku, Azerbaijan. I started coding in 2025 and went deep into
-            Swift &amp; SwiftUI from day one. Since then I've shipped 4 real apps across banking, crypto,
-            fitness and shopping domains. My background is in process automation engineering, so I care
-            about clean architecture, readable code and interfaces that get out of the user's way.
+            I am an enthusiastic iOS Developer building mobile applications with Swift and SwiftUI. I started my programming journey in 2025. My main interest and focus is iOS development.
+            I work with MVVM architecture, build responsive and intuitive interfaces using SwiftUI, and integrate real-world APIs using URLSession and async/await. I care about clean, readable code and user experiences that feel natural — whether it's a banking comparison tool, a crypto tracker, a step counter, or a shopping calculator.
           </p>
           <div className="vm-about-cta">
             <a
@@ -377,7 +375,7 @@ function Portfolio() {
       <footer className="vm-footer">
         <div className="vm-footer-inner">
           <span>© 2026 Aysel Mohbaliyeva</span>
-          <span>Baku · iOS Developer</span>
+          <span>iOS Developer</span>
         </div>
       </footer>
     </div>
@@ -432,7 +430,7 @@ html{scroll-behavior:smooth}
 .vm-deco{position:absolute;bottom:-72%;right:-10%;width:100%;height:100rem;background:linear-gradient(90deg,#fff 0%,#ececec 100%);border-radius:62% 38% 56% 44% / 43% 27% 73% 57%;z-index:-1;animation:vmPulse 15s infinite}
 .vm-deco-2{bottom:-78%;right:-15%;background:linear-gradient(90deg,#fff 0%,#e0e0e0 100%)}
 .vm-hero-info{display:flex;flex-direction:column;align-items:center}
-.vm-hero-img{width:160px;height:160px;border-radius:999px;border:3px solid #fff;box-shadow:3px 6px 14px rgba(0,0,0,.18);background:#f3f3f3;object-fit:cover}
+.vm-hero-img{width:160px;height:160px;border-radius:999px;border:none;box-shadow:none;background:transparent;object-fit:cover}
 .vm-hero-text{text-align:center;margin-top:24px}
 .vm-hero-text h1{font-size:clamp(28px,4.5vw,40px);margin-bottom:8px}
 .vm-hero-text span{font-size:14px;color:#555;letter-spacing:.05em}
@@ -471,9 +469,9 @@ html{scroll-behavior:smooth}
 /* PHONE */
 .vm-phone{position:relative;width:220px;aspect-ratio:9/19;background:#000;border-radius:32px;padding:6px;box-shadow:0 20px 50px -10px rgba(0,0,0,.4),0 0 0 2px rgba(255,255,255,.08) inset;overflow:hidden}
 .vm-phone-sm{width:170px;border-radius:26px}
-.vm-phone img{width:100%;height:100%;object-fit:cover;border-radius:26px;display:block}
-.vm-phone-sm img{border-radius:20px}
-.vm-phone-notch{position:absolute;top:6px;left:50%;transform:translateX(-50%);width:60px;height:14px;background:#000;border-radius:0 0 12px 12px;z-index:2}
+.vm-phone img{width:100%;height:108%;object-fit:cover;object-position:top center;border-radius:26px;display:block;margin-top:-8%;}
+.vm-phone-sm img{border-radius:20px;object-position:top center;width:100%;height:108%;margin-top:-8%;}
+
 .vm-phone-empty{width:100%;height:100%;background:linear-gradient(135deg,#3a3a3c,#1c1c1e);border-radius:26px}
 
 .vm-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
