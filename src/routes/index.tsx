@@ -82,12 +82,11 @@ const showcase: Project[] = [
     images: [14,15,16,17].map(discShot),
   },
 ];
-
 function PhoneImg({ src }: { src: string }) {
   const [failed, setFailed] = useState(false);
   if (failed) return <div className="vm-ss-empty" />;
-  return <img src={src}
-
+  return <img src={src} alt="screenshot" loading="lazy" onError={() => setFailed(true)} />;
+}
 function Slider({ images }: { images: string[] }) {
   const [idx, setIdx] = useState(0);
   const startX = useRef<number | null>(null);
