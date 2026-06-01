@@ -23,7 +23,7 @@ export const Route = createFileRoute("/")({
   component: Portfolio,
 });
 
-const bankShot  = (n: number) => `/screenshots/AZBankMate/${n}.png`;
+const bankShot   = (n: number) => `/screenshots/AZBankMate/${n}.png`;
 const cryptoShot = (n: number) => `/screenshots/CryptoTrack/${n}.png`;
 const steplyShot = (n: number) => `/screenshots/Steply/${n}.png`;
 const discShot   = (n: number) => `/screenshots/DiscountHelper/${n}.png`;
@@ -46,7 +46,7 @@ const featured1: Project = {
     "An iOS application designed to compare banking products across Azerbaijani banks. Users can compare mortgage, credit, deposit, debit/miles cards and cashback offers, track real-time CBAR exchange rates, and save favorite banks.",
   tags: ["Swift", "SwiftUI", "MVVM", "MapKit", "URLSession", "@Observable"],
   github: "https://github.com/aisel-mohbaliyeva/AZBankMate",
-  images: [1,2,3,4,5,6].map(bankShot),
+  images: [1, 2, 3, 4, 5, 6].map(bankShot),
 };
 
 const featured2: Project = {
@@ -57,7 +57,7 @@ const featured2: Project = {
     "Live prices for the top 50 cryptocurrencies with 7-day sparkline charts, favorites and a personal portfolio tracker. Powered by the CoinGecko API and built with Combine.",
   tags: ["SwiftUI", "Swift Charts", "Combine", "URLSession"],
   github: "https://github.com/aisel-mohbaliyeva/Crypto-Track_API",
-  images: [7,8,9,10].map(cryptoShot),
+  images: [7, 8, 9, 10].map(cryptoShot),
 };
 
 const showcase: Project[] = [
@@ -69,7 +69,7 @@ const showcase: Project[] = [
       "Step tracker built on HealthKit. Animated progress ring, weekly bar chart, and achievement awards that unlock by step count milestones.",
     tags: ["SwiftUI", "HealthKit", "Swift Charts", "@Observable"],
     github: "https://github.com/aisel-mohbaliyeva/Steply",
-    images: [11,12,13].map(steplyShot),
+    images: [11, 12, 13].map(steplyShot),
   },
   {
     id: "discounthelper",
@@ -79,14 +79,16 @@ const showcase: Project[] = [
       "Discount calculator with 5 currencies, calculation history, share sheet, spring animations and haptic feedback. Persistence via UserDefaults.",
     tags: ["SwiftUI", "Combine", "MVVM", "UserDefaults"],
     github: "https://github.com/aisel-mohbaliyeva/DiscountHelper",
-    images: [14,15,16,17].map(discShot),
+    images: [14, 15, 16].map(discShot),
   },
 ];
+
 function PhoneImg({ src }: { src: string }) {
   const [failed, setFailed] = useState(false);
-  if (failed) return <div className="vm-ss-empty" />;
+  if (failed) return <div className="vm-phone-empty" />;
   return <img src={src} alt="screenshot" loading="lazy" onError={() => setFailed(true)} />;
 }
+
 function Slider({ images }: { images: string[] }) {
   const [idx, setIdx] = useState(0);
   const startX = useRef<number | null>(null);
@@ -114,7 +116,10 @@ function Slider({ images }: { images: string[] }) {
       <div className="vm-slider-track" style={{ transform: `translateX(-${idx * 100}%)` }}>
         {images.map((src, i) => (
           <div className="vm-slide" key={i}>
-            <PhoneImg src={src} />
+            <div className="vm-phone">
+              <span className="vm-phone-notch" />
+              <PhoneImg src={src} />
+            </div>
           </div>
         ))}
       </div>
@@ -139,7 +144,10 @@ function ShowcaseItem({ p }: { p: Project }) {
       <div className="vm-show-gallery">
         {p.images.slice(0, 3).map((src, i) => (
           <div key={i} className={`vm-show-phone vm-show-phone-${i}`}>
-            <PhoneImg src={src} />
+            <div className="vm-phone vm-phone-sm">
+              <span className="vm-phone-notch" />
+              <PhoneImg src={src} />
+            </div>
           </div>
         ))}
       </div>
@@ -201,7 +209,6 @@ function Portfolio() {
     <div className="vm">
       <style>{styles}</style>
 
-      {/* HEADER BUTTON + EXPANDING BG + NAV */}
       <header className="vm-header">
         <button
           className="vm-header-btn"
@@ -238,29 +245,13 @@ function Portfolio() {
             <span>Contact</span>
             <ul>
               <li>
-                <a
-                  className="vm-btn vm-btn-white"
-                  href="https://www.linkedin.com/in/ayselmohbaliyeva8/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  LinkedIn
-                </a>
+                <a className="vm-btn vm-btn-white" href="https://www.linkedin.com/in/ayselmohbaliyeva8/" target="_blank" rel="noreferrer">LinkedIn</a>
               </li>
               <li>
-                <a
-                  className="vm-btn vm-btn-white"
-                  href="https://github.com/aisel-mohbaliyeva"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  GitHub
-                </a>
+                <a className="vm-btn vm-btn-white" href="https://github.com/aisel-mohbaliyeva" target="_blank" rel="noreferrer">GitHub</a>
               </li>
               <li>
-                <button className="vm-btn vm-btn-white" onClick={revealEmail}>
-                  Email Address
-                </button>
+                <button className="vm-btn vm-btn-white" onClick={revealEmail}>Email Address</button>
                 <div className="vm-email">{email}</div>
               </li>
             </ul>
@@ -268,7 +259,6 @@ function Portfolio() {
         </nav>
       </header>
 
-      {/* HERO */}
       <section className="vm-hero" id="top">
         <div className="vm-deco" />
         <div className="vm-deco vm-deco-2" />
@@ -287,7 +277,6 @@ function Portfolio() {
         </div>
       </section>
 
-      {/* FEATURED 1 — AZ BankMate (red bg + slider) */}
       <section className="vm-feature vm-feature-red reveal" id="azbankmate">
         <div className="vm-feature-slider">
           <Slider images={featured1.images} />
@@ -306,7 +295,6 @@ function Portfolio() {
         </div>
       </section>
 
-      {/* FEATURED 2 — CryptoTrack (dark bg) */}
       <section className="vm-feature vm-feature-dark reveal" id="cryptotrack">
         <div className="vm-feature-info">
           <h2>{featured2.name}</h2>
@@ -325,7 +313,6 @@ function Portfolio() {
         </div>
       </section>
 
-      {/* SHOWCASE GRID */}
       <section className="vm-showcase" id="showcase">
         <h2 className="vm-showcase-title">More Apps & Projects</h2>
         {showcase.map((p) => (
@@ -335,34 +322,17 @@ function Portfolio() {
         ))}
       </section>
 
-      {/* ABOUT / CONTACT */}
       <section className="vm-about reveal" id="contact">
         <div className="vm-about-inner">
           <h2>About Aysel</h2>
           <p>
             I am an enthusiastic iOS Developer building mobile applications with Swift and SwiftUI. I started my programming journey in 2025. My main interest and focus is iOS development.
-            I work with MVVM architecture, build responsive and intuitive interfaces using SwiftUI, and integrate real-world APIs using URLSession and async/await. I care about clean, readable code and user experiences that feel natural — whether it's a banking comparison tool, a crypto tracker, a step counter, or a shopping calculator.
+            I work with MVVM architecture, build responsive and intuitive interfaces using SwiftUI, and integrate real-world APIs using URLSession and async/await. I care about clean, readable code and user experiences that feel natural.
           </p>
           <div className="vm-about-cta">
-            <a
-              className="vm-btn vm-btn-dark"
-              href="https://www.linkedin.com/in/ayselmohbaliyeva8/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              LinkedIn
-            </a>
-            <a
-              className="vm-btn vm-btn-hollow-dark"
-              href="https://github.com/aisel-mohbaliyeva"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>
-            <a className="vm-btn vm-btn-hollow-dark" href="mailto:ayselmohbaliyeva22@gmail.com">
-              Email
-            </a>
+            <a className="vm-btn vm-btn-dark" href="https://www.linkedin.com/in/ayselmohbaliyeva8/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a className="vm-btn vm-btn-hollow-dark" href="https://github.com/aisel-mohbaliyeva" target="_blank" rel="noreferrer">GitHub</a>
+            <a className="vm-btn vm-btn-hollow-dark" href="mailto:ayselmohbaliyeva22@gmail.com">Email</a>
           </div>
         </div>
       </section>
@@ -387,7 +357,6 @@ html{scroll-behavior:smooth}
 .vm ul{list-style:none}
 .vm img{max-width:100%;display:block}
 
-/* === HEADER BUTTON (Viktor-style) === */
 .vm-header-btn{position:fixed;top:24px;left:24px;width:56px;height:56px;border:2px solid #fff;border-radius:999px;background:#2c2c2e;display:flex;align-items:center;justify-content:center;box-shadow:1px 3px 6px rgba(0,0,0,.4);z-index:3000;cursor:pointer;transition:transform .4s}
 .vm-header-btn:hover{transform:scale(1.06)}
 .vm-header-btn:active{transform:scale(.94)}
@@ -397,10 +366,8 @@ html{scroll-behavior:smooth}
 .vm-ham-close span:nth-child(1){transform:translateY(2px) rotate(135deg)}
 .vm-ham-close span:nth-child(2){transform:translateX(-20px);opacity:0}
 .vm-ham-close span:nth-child(3){transform:translateY(-2px) rotate(-135deg)}
-
 .vm-header-bg{position:fixed;top:32px;left:32px;width:40px;height:40px;background:#c31e00;border-radius:999px;z-index:1000;transition:transform .6s cubic-bezier(.7,0,.3,1);pointer-events:none}
 .vm-expand-bg{transform:scale(220)}
-
 .vm-nav{position:fixed;inset:0;z-index:1500;display:flex;justify-content:center;align-items:flex-start;gap:48px;padding:120px 24px 48px;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .4s .15s;flex-wrap:wrap}
 .vm-show-nav{opacity:1;pointer-events:auto}
 .vm-nav-item{color:#fff;text-align:center;min-width:200px}
@@ -411,7 +378,6 @@ html{scroll-behavior:smooth}
 .vm-nav-item .vm-btn{margin-top:6px}
 .vm-email{margin-top:8px;color:#fff;font-size:14px;min-height:18px;opacity:.9}
 
-/* BUTTONS */
 .vm-btn{display:inline-flex;align-items:center;gap:10px;border:none;cursor:pointer;font-family:inherit;font-size:14px;font-weight:700;padding:12px 22px;border-radius:999px;text-transform:uppercase;letter-spacing:.06em;transition:transform .25s,box-shadow .25s,background .25s,color .25s,letter-spacing .25s}
 .vm-btn-dark{background:#c31e00;color:#fff}
 .vm-btn-dark:hover{transform:translateY(-3px);box-shadow:1px 3px 10px rgba(0,0,0,.4)}
@@ -420,7 +386,6 @@ html{scroll-behavior:smooth}
 .vm-btn-hollow-dark{background:transparent;border:2px solid #111;color:#111}
 .vm-btn-hollow-dark:hover{transform:translateY(-3px);letter-spacing:.12em;box-shadow:1px 3px 10px rgba(0,0,0,.2)}
 
-/* HERO */
 .vm-hero{position:relative;min-height:93vh;display:flex;flex-direction:column;justify-content:center;align-items:center;overflow:hidden;animation:vmFadeIn 1s}
 .vm-deco{position:absolute;bottom:-72%;right:-10%;width:100%;height:100rem;background:linear-gradient(90deg,#fff 0%,#ececec 100%);border-radius:62% 38% 56% 44% / 43% 27% 73% 57%;z-index:-1;animation:vmPulse 15s infinite}
 .vm-deco-2{bottom:-78%;right:-15%;background:linear-gradient(90deg,#fff 0%,#e0e0e0 100%)}
@@ -433,12 +398,10 @@ html{scroll-behavior:smooth}
 .vm-hero-cta span{font-size:18px;font-weight:200;margin-bottom:8px;text-transform:lowercase;letter-spacing:.1em}
 .vm-arrow{animation:vmBob 2s infinite}
 .vm-arrow svg{width:28px;height:28px}
-
 @keyframes vmFadeIn{from{opacity:0}to{opacity:1}}
 @keyframes vmPulse{0%,100%{transform:translateX(0)}25%{transform:translateX(-3%)}50%{transform:translateX(0)}75%{transform:translateX(3%)}}
 @keyframes vmBob{0%,100%{transform:translateY(0);opacity:1}50%{transform:translateY(8px);opacity:.4}}
 
-/* FEATURE SECTIONS */
 .vm-feature{min-height:90vh;display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:80px 48px;align-items:center}
 .vm-feature-red{background:#c31e00;color:#fff}
 .vm-feature-dark{background:#2c2c2e;color:#fff}
@@ -448,8 +411,7 @@ html{scroll-behavior:smooth}
 .vm-feature-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
 .vm-feature-slider{display:flex;justify-content:center;align-items:center;padding:24px}
 
-/* SLIDER */
-.vm-slider{position:relative;width:100%;max-width:420px;overflow:hidden;padding:0 40px}
+.vm-slider{position:relative;width:100%;max-width:300px;overflow:hidden;padding:0 36px}
 .vm-slider-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.2);border:none;width:36px;height:36px;border-radius:999px;color:#fff;cursor:pointer;z-index:5;display:flex;align-items:center;justify-content:center;transition:all .2s}
 .vm-slider-btn:hover{background:rgba(0,0,0,.45);transform:translateY(-50%) scale(1.1)}
 .vm-slider-btn svg{width:18px;height:18px}
@@ -461,22 +423,22 @@ html{scroll-behavior:smooth}
 .vm-dot{width:7px;height:7px;border-radius:999px;background:rgba(255,255,255,.4);border:none;padding:0;cursor:pointer;transition:all .2s}
 .vm-dot.on{background:#fff;transform:scale(1.4)}
 
-/* SCREENSHOT */
-.vm-ss-empty{width:100%;background:#f0f0f0;border-radius:16px}
-.vm-slide img{width:100%;display:block;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.15)}
-.vm-show-phone img{width:100%;display:block;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.12)}
+.vm-phone{position:relative;width:220px;aspect-ratio:9/19;background:#000;border-radius:32px;padding:6px;box-shadow:0 20px 50px -10px rgba(0,0,0,.4),0 0 0 2px rgba(255,255,255,.08) inset;overflow:hidden}
+.vm-phone-sm{width:170px;border-radius:26px}
+.vm-phone img{width:100%;height:100%;object-fit:cover;border-radius:26px;display:block}
+.vm-phone-sm img{border-radius:20px}
+.vm-phone-empty{width:100%;height:100%;background:linear-gradient(135deg,#3a3a3c,#1c1c1e);border-radius:26px}
 
 .vm-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .vm-tags span{font-size:11px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,.08);text-transform:uppercase;letter-spacing:.06em;font-weight:700}
 .vm-tags-light span{background:rgba(255,255,255,.15);color:#fff}
 
-/* SHOWCASE */
 .vm-showcase{padding:80px 48px;background:#fafafa}
 .vm-showcase-title{text-align:center;font-size:clamp(28px,4vw,44px);font-weight:200;margin-bottom:60px;letter-spacing:.02em}
 .vm-show-item{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center;max-width:1100px;margin:0 auto 80px;opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.2,.7,.2,1)}
 .vm-show-item.on{opacity:1;transform:none}
 .vm-show-gallery{position:relative;height:380px;display:flex;justify-content:center;align-items:center}
-.vm-show-phone{position:absolute;width:160px;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.vm-show-phone{position:absolute;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .vm-show-phone-0{transform:translate(-90px,0) rotate(-8deg);z-index:1}
 .vm-show-phone-1{transform:translate(0,-10px) rotate(0deg);z-index:3}
 .vm-show-phone-2{transform:translate(90px,0) rotate(8deg);z-index:2}
@@ -487,7 +449,6 @@ html{scroll-behavior:smooth}
 .vm-show-info p{line-height:1.7;margin-bottom:16px;color:#333}
 .vm-show-info .vm-btn{margin-top:20px}
 
-/* ABOUT */
 .vm-about{padding:100px 48px;background:#fff}
 .vm-about-inner{max-width:760px;margin:0 auto;text-align:center;opacity:0;transform:translateY(30px);transition:all .8s}
 .vm-about.on .vm-about-inner{opacity:1;transform:none}
@@ -495,15 +456,12 @@ html{scroll-behavior:smooth}
 .vm-about p{font-size:17px;line-height:1.8;color:#333;margin-bottom:32px}
 .vm-about-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 
-/* FOOTER */
 .vm-footer{background:#fff;border-top:1px solid rgba(0,0,0,.08);padding:20px 32px}
 .vm-footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:13px;font-weight:200;color:#444;text-transform:uppercase;letter-spacing:.05em}
 
-/* REVEAL */
 .reveal{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s}
 .reveal.on{opacity:1;transform:none}
 
-/* RESPONSIVE */
 @media(max-width:900px){
   .vm-feature{grid-template-columns:1fr;padding:60px 20px;gap:40px}
   .vm-feature-dark .vm-feature-info{order:2}
@@ -520,7 +478,9 @@ html{scroll-behavior:smooth}
   .vm-header-btn{top:16px;left:16px;width:50px;height:50px}
   .vm-header-bg{top:22px;left:22px}
   .vm-hero-img{width:130px;height:130px}
-      .vm-show-phone-0{transform:translate(-50px,0) rotate(-6deg)}
+  .vm-phone{width:190px}
+  .vm-phone-sm{width:140px}
+  .vm-show-phone-0{transform:translate(-50px,0) rotate(-6deg)}
   .vm-show-phone-2{transform:translate(50px,0) rotate(6deg)}
   .vm-showcase,.vm-about{padding:60px 20px}
   .vm-show-item{margin-bottom:60px}
