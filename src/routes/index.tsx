@@ -51,11 +51,11 @@ const featured1: Project = {
 
 const featured2: Project = {
   id: "cryptotrack",
-  name: "CryptoTrack",
+  name: "Crypto Track",
   tagline: "Crypto · Live API",
   desc:
     "Live prices for the top 50 cryptocurrencies with 7-day sparkline charts, favorites and a personal portfolio tracker. Powered by the CoinGecko API and built with Combine.",
-  tags: ["SwiftUI", "Swift Charts", "Combine", "URLSession"],
+  tags: ["SwiftUI", "Swift Charts", "MVVM", "Combine", "URLSession", "async/await", "UserDefaults", "CoinGecko API"],
   github: "https://github.com/aisel-mohbaliyeva/Crypto-Track_API",
   images: [7, 8, 9, 10].map(cryptoShot),
 };
@@ -67,17 +67,17 @@ const showcase: Project[] = [
     tagline: "Health · HealthKit",
     desc:
       "Step tracker built on HealthKit. Animated progress ring, weekly bar chart, and achievement awards that unlock by step count milestones.",
-    tags: ["SwiftUI", "HealthKit", "Swift Charts", "@Observable"],
+    tags: ["SwiftUI", "HealthKit", "Swift Charts", "MVVM", "@Observable", "async/await", "SF Symbols"],
     github: "https://github.com/aisel-mohbaliyeva/Steply",
     images: [11, 12, 13].map(steplyShot),
   },
   {
     id: "discounthelper",
-    name: "DiscountHelper",
+    name: "Discount Helper",
     tagline: "Utility · Calculator",
     desc:
       "Discount calculator with 5 currencies, calculation history, share sheet, spring animations and haptic feedback. Persistence via UserDefaults.",
-    tags: ["SwiftUI", "Combine", "MVVM", "UserDefaults"],
+    tags: ["SwiftUI", "Combine", "MVVM", "@StateObject", "@Published", "@EnvironmentObject", "UserDefaults (Codable)"],
     github: "https://github.com/aisel-mohbaliyeva/DiscountHelper",
     images: [14, 15, 16].map(discShot),
   },
@@ -228,9 +228,9 @@ function Portfolio() {
             <span>Portfolio</span>
             <ul>
               <li><a href="#azbankmate" onClick={() => setMenuOpen(false)}>AZ BankMate</a></li>
-              <li><a href="#cryptotrack" onClick={() => setMenuOpen(false)}>CryptoTrack</a></li>
+              <li><a href="#cryptotrack" onClick={() => setMenuOpen(false)}>Crypto Track</a></li>
               <li><a href="#steply" onClick={() => setMenuOpen(false)}>Steply</a></li>
-              <li><a href="#discounthelper" onClick={() => setMenuOpen(false)}>DiscountHelper</a></li>
+              <li><a href="#discounthelper" onClick={() => setMenuOpen(false)}>Discount Helper</a></li>
             </ul>
           </div>
           <div className="vm-nav-item">
@@ -245,10 +245,10 @@ function Portfolio() {
             <span>Contact</span>
             <ul>
               <li>
-                <a className="vm-btn vm-btn-white" href="https://www.linkedin.com/in/ayselmohbaliyeva8/" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a className="vm-btn vm-btn-dark" href="https://www.linkedin.com/in/ayselmohbaliyeva8/" target="_blank" rel="noreferrer">LinkedIn</a>
               </li>
               <li>
-                <a className="vm-btn vm-btn-white" href="https://github.com/aisel-mohbaliyeva" target="_blank" rel="noreferrer">GitHub</a>
+                <a className="vm-btn vm-btn-dark" href="https://github.com/aisel-mohbaliyeva" target="_blank" rel="noreferrer">GitHub</a>
               </li>
               <li>
                 <button className="vm-btn vm-btn-white" onClick={revealEmail}>Email Address</button>
@@ -303,7 +303,7 @@ function Portfolio() {
             {featured2.tags.map((t) => <span key={t}>{t}</span>)}
           </div>
           <div className="vm-feature-cta">
-            <a href={featured2.github} target="_blank" rel="noreferrer" className="vm-btn vm-btn-white">
+            <a href={featured2.github} target="_blank" rel="noreferrer" className="vm-btn vm-btn-dark">
               <GithubIcon /> GitHub
             </a>
           </div>
@@ -326,9 +326,15 @@ function Portfolio() {
         <div className="vm-about-inner">
           <h2>About Aysel</h2>
           <p>
-            I am an enthusiastic iOS Developer building mobile applications with Swift and SwiftUI. I started my programming journey in 2025. My main interest and focus is iOS development.
-            I work with MVVM architecture, build responsive and intuitive interfaces using SwiftUI, and integrate real-world APIs using URLSession and async/await. I care about clean, readable code and user experiences that feel natural.
+            I am an enthusiastic iOS Developer building mobile applications with Swift and SwiftUI. I started my programming journey in 2025. My main interest and focus is iOS development. I am looking for a Junior iOS Developer position where I can contribute to real projects within a team.
           </p>
+          <div className="vm-skills-grid">
+            <div className="vm-skill-group"><strong>Languages</strong><span>Swift · SwiftUI · Swift Charts</span></div>
+            <div className="vm-skill-group"><strong>Architecture</strong><span>MVVM · @Observable</span></div>
+            <div className="vm-skill-group"><strong>Networking</strong><span>async/await · URLSession · REST APIs · Firebase</span></div>
+            <div className="vm-skill-group"><strong>Data</strong><span>Core Data · HealthKit · UserDefaults</span></div>
+            <div className="vm-skill-group"><strong>Tools</strong><span>Xcode · Git · GitHub · Jira · Agile/Scrum · Figma · Notion</span></div>
+          </div>
           <div className="vm-about-cta">
             <a className="vm-btn vm-btn-dark" href="https://www.linkedin.com/in/ayselmohbaliyeva8/" target="_blank" rel="noreferrer">LinkedIn</a>
             <a className="vm-btn vm-btn-hollow-dark" href="https://github.com/aisel-mohbaliyeva" target="_blank" rel="noreferrer">GitHub</a>
@@ -455,6 +461,10 @@ html{scroll-behavior:smooth}
 .vm-about h2{font-size:clamp(32px,4vw,48px);margin-bottom:24px;font-weight:200}
 .vm-about p{font-size:17px;line-height:1.8;color:#333;margin-bottom:32px}
 .vm-about-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.vm-skills-grid{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:32px}
+.vm-skill-group{background:#f5f5f5;border-radius:12px;padding:14px 20px;text-align:left;min-width:200px;flex:1}
+.vm-skill-group strong{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#c31e00;margin-bottom:6px;font-weight:700}
+.vm-skill-group span{font-size:14px;color:#333;line-height:1.6}
 
 .vm-footer{background:#fff;border-top:1px solid rgba(0,0,0,.08);padding:20px 32px}
 .vm-footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:13px;font-weight:200;color:#444;text-transform:uppercase;letter-spacing:.05em}
