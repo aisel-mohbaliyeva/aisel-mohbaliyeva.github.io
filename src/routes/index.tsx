@@ -90,7 +90,7 @@ const showcase: Project[] = [
       "Discount calculator with 5 currencies, calculation history, share sheet, spring animations and haptic feedback. Persistence via UserDefaults.",
     tags: ["SwiftUI", "Combine", "MVVM", "@StateObject", "@Published", "@EnvironmentObject", "UserDefaults (Codable)"],
     github: "https://github.com/aisel-mohbaliyeva/DiscountHelper",
-    images: [15, 16, 17, 18].map(discShot),
+    images: [14, 15, 16, 17].map(discShot),
   },
 ];
 
