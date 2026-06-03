@@ -68,7 +68,7 @@ const exploreAZ: Project = {
   desc: "A tourism guide app for Azerbaijan, designed to help tourists and visitors explore the country independently. Browse cities, discover attractions, plan itineraries, and access practical travel information — all in one place.",
   tags: ["SwiftUI", "MapKit", "@Observable", "UserDefaults", "SOLID Principles"],
   github: "https://github.com/aisel-mohbaliyeva/ExploreAZ",
-  images: [1, 2, 3, 4, 5, 6, 7, 8].map(exploreShot),
+  images: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(exploreShot),
 };
 
 const showcase: Project[] = [
@@ -355,16 +355,52 @@ function Portfolio() {
 
       <section className="vm-about reveal" id="contact">
         <div className="vm-about-inner">
-          <h2>About Aysel</h2>
-          <p>
-            I am an enthusiastic iOS Developer building mobile applications with Swift and SwiftUI. I started my programming journey in 2025. My main interest and focus is iOS development. I am looking for a Junior iOS Developer position where I can contribute to real projects within a team.
+          <h2 className="vm-about-title">About Aysel</h2>
+          <p className="vm-about-bio">
+            I am an enthusiastic iOS Developer building mobile applications with Swift and SwiftUI. I started my programming journey in 2025. My main interest and focus is iOS development.
           </p>
-          <div className="vm-skills-grid">
-            <div className="vm-skill-group"><strong>Languages</strong><span>Swift · SwiftUI · Swift Charts</span></div>
-            <div className="vm-skill-group"><strong>Architecture</strong><span>MVVM · @Observable</span></div>
-            <div className="vm-skill-group"><strong>Networking</strong><span>async/await · URLSession · REST APIs · Firebase</span></div>
-            <div className="vm-skill-group"><strong>Data</strong><span>Core Data · HealthKit · UserDefaults</span></div>
-            <div className="vm-skill-group"><strong>Tools</strong><span>Xcode · Git · GitHub · Jira · Agile/Scrum · Figma · Notion</span></div>
+          <div className="vm-about-cols">
+            <div className="vm-about-col">
+              <h4 className="vm-about-col-title">Technical Skills</h4>
+              <div className="vm-skill-list">
+                <div className="vm-skill-row"><span className="vm-skill-cat">Languages &amp; Frameworks</span><span className="vm-skill-val">Swift · SwiftUI · Swift Charts</span></div>
+                <div className="vm-skill-row"><span className="vm-skill-cat">Tools &amp; Workflow</span><span className="vm-skill-val">Xcode · Git · GitHub · Git Flow · Jira · Agile/Scrum · Notion · CI/CD</span></div>
+                <div className="vm-skill-row"><span className="vm-skill-cat">Networking &amp; Cloud</span><span className="vm-skill-val">async/await · REST APIs · JSON · URLSession · Firebase</span></div>
+                <div className="vm-skill-row"><span className="vm-skill-cat">Data &amp; Storage</span><span className="vm-skill-val">Core Data · HealthKit · UserDefaults</span></div>
+                <div className="vm-skill-row"><span className="vm-skill-cat">Architecture &amp; Design</span><span className="vm-skill-val">MVVM · OOP · SOLID Principles</span></div>
+              </div>
+              <h4 className="vm-about-col-title" style={{marginTop:"28px"}}>Languages</h4>
+              <div className="vm-lang-row">
+                <span className="vm-lang-item"><strong>Azerbaijani</strong> — Native</span>
+                <span className="vm-lang-item"><strong>English</strong> — B1 (Technical English)</span>
+              </div>
+            </div>
+            <div className="vm-about-col">
+              <h4 className="vm-about-col-title">Education</h4>
+              <div className="vm-edu-list">
+                <div className="vm-edu-item">
+                  <span className="vm-edu-school">Azerbaijan Technical University</span>
+                  <span className="vm-edu-degree">Process Automation Engineering</span>
+                  <span className="vm-edu-year">2020 – 2024</span>
+                </div>
+                <div className="vm-edu-item">
+                  <span className="vm-edu-school">Baku College of Management and Technology</span>
+                  <span className="vm-edu-degree">Automation of Information Processing and Management</span>
+                  <span className="vm-edu-year">2014 – 2017</span>
+                </div>
+              </div>
+              <h4 className="vm-about-col-title" style={{marginTop:"28px"}}>Certifications</h4>
+              <div className="vm-edu-list">
+                <div className="vm-edu-item">
+                  <span className="vm-edu-school">Teachable — iOS Development - SwiftUI | Sean Allen</span>
+                  <span className="vm-edu-year">2025 – 2026</span>
+                </div>
+                <div className="vm-edu-item">
+                  <span className="vm-edu-school">Meta — Programming with JavaScript</span>
+                  <span className="vm-edu-year">2025 – 2026</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="vm-about-cta">
             <a className="vm-btn vm-btn-dark" href="https://www.linkedin.com/in/ayselmohbaliyeva8/" target="_blank" rel="noreferrer">LinkedIn</a>
@@ -532,4 +568,22 @@ html{scroll-behavior:smooth}
   .vm-show-item{margin-bottom:60px}
   .vm-feature-info{padding:0}
 }
+.vm-about-title{font-size:clamp(26px,3.5vw,40px);font-weight:400;letter-spacing:-.02em;text-align:center;margin-bottom:28px}
+.vm-about-bio{text-align:center;max-width:560px;margin:0 auto 36px;font-size:15px;color:#555;line-height:1.8}
+.vm-about-cols{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:36px;text-align:left;align-items:start}
+.vm-about-col-title{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#c31e00;margin-bottom:14px;padding-bottom:8px;border-bottom:1.5px solid #eee}
+.vm-skill-list{display:flex;flex-direction:column}
+.vm-skill-row{display:grid;grid-template-columns:140px 1fr;gap:12px;padding:9px 0;border-bottom:1px solid #f2f2f2}
+.vm-skill-row:last-child{border-bottom:none}
+.vm-skill-cat{font-size:11px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:.05em;line-height:1.6}
+.vm-skill-val{font-size:13px;color:#333;line-height:1.6}
+.vm-edu-list{display:flex;flex-direction:column}
+.vm-edu-item{display:flex;flex-direction:column;gap:2px;padding:10px 0;border-bottom:1px solid #f2f2f2}
+.vm-edu-item:last-child{border-bottom:none}
+.vm-edu-school{font-size:14px;font-weight:600;color:#111}
+.vm-edu-degree{font-size:13px;color:#555}
+.vm-edu-year{font-size:12px;color:#bbb;margin-top:2px}
+.vm-lang-row{display:flex;gap:24px;flex-wrap:wrap;padding:10px 0}
+.vm-lang-item{font-size:13px;color:#333;line-height:1.6}
+@media(max-width:700px){.vm-about-cols{grid-template-columns:1fr;gap:28px}.vm-skill-row{grid-template-columns:1fr;gap:2px}}
 `;
