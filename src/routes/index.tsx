@@ -475,7 +475,7 @@ html{scroll-behavior:smooth}
 @keyframes vmPulse{0%,100%{transform:translateX(0)}25%{transform:translateX(-3%)}50%{transform:translateX(0)}75%{transform:translateX(3%)}}
 @keyframes vmBob{0%,100%{transform:translateY(0);opacity:1}50%{transform:translateY(8px);opacity:.4}}
 
-.vm-feature{min-height:90vh;display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:80px 48px;align-items:center}
+.vm-feature{min-height:90vh;display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:80px 48px;align-items:center;overflow:hidden}
 .vm-feature-red{background:#c31e00;color:#fff}
 .vm-feature-dark{background:#2c2c2e;color:#fff}
 .vm-feature-exploreaz{background:linear-gradient(135deg,#0092BC 0%,#003d7a 40%,#c0392b 72%,#00956a 100%);color:#fff;position:relative;overflow:hidden}
