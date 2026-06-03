@@ -355,16 +355,52 @@ function Portfolio() {
 
       <section className="vm-about reveal" id="contact">
         <div className="vm-about-inner">
-          <h2>About Aysel</h2>
-          <p>
-            I am an enthusiastic iOS Developer building mobile applications with Swift and SwiftUI. I started my programming journey in 2025. My main interest and focus is iOS development. I am looking for a Junior iOS Developer position where I can contribute to real projects within a team.
+          <h2 className="vm-about-title">About Aysel</h2>
+          <p className="vm-about-bio">
+            I am an enthusiastic iOS Developer building mobile applications with Swift and SwiftUI. I started my programming journey in 2025. My main interest and focus is iOS development.
           </p>
-          <div className="vm-skills-grid">
-            <div className="vm-skill-group"><strong>Languages</strong><span>Swift · SwiftUI · Swift Charts</span></div>
-            <div className="vm-skill-group"><strong>Architecture</strong><span>MVVM · @Observable</span></div>
-            <div className="vm-skill-group"><strong>Networking</strong><span>async/await · URLSession · REST APIs · Firebase</span></div>
-            <div className="vm-skill-group"><strong>Data</strong><span>Core Data · HealthKit · UserDefaults</span></div>
-            <div className="vm-skill-group"><strong>Tools</strong><span>Xcode · Git · GitHub · Jira · Agile/Scrum · Figma · Notion</span></div>
+          <div className="vm-about-cols">
+            <div className="vm-about-col">
+              <h4 className="vm-about-col-title">Technical Skills</h4>
+              <div className="vm-skill-list">
+                <div className="vm-skill-row"><span className="vm-skill-cat">Languages &amp; Frameworks</span><span className="vm-skill-val">Swift · SwiftUI · Swift Charts</span></div>
+                <div className="vm-skill-row"><span className="vm-skill-cat">Tools &amp; Workflow</span><span className="vm-skill-val">Xcode · Git · GitHub · Git Flow · Jira · Agile/Scrum · Notion · CI/CD</span></div>
+                <div className="vm-skill-row"><span className="vm-skill-cat">Networking &amp; Cloud</span><span className="vm-skill-val">async/await · REST APIs · JSON · URLSession · Firebase</span></div>
+                <div className="vm-skill-row"><span className="vm-skill-cat">Data &amp; Storage</span><span className="vm-skill-val">Core Data · HealthKit · UserDefaults</span></div>
+                <div className="vm-skill-row"><span className="vm-skill-cat">Architecture &amp; Design</span><span className="vm-skill-val">MVVM · OOP · SOLID Principles</span></div>
+              </div>
+              <h4 className="vm-about-col-title" style={{marginTop:"28px"}}>Languages</h4>
+              <div className="vm-lang-row">
+                <span className="vm-lang-item"><strong>Azerbaijani</strong> — Native</span>
+                <span className="vm-lang-item"><strong>English</strong> — B1 (Technical English)</span>
+              </div>
+            </div>
+            <div className="vm-about-col">
+              <h4 className="vm-about-col-title">Education</h4>
+              <div className="vm-edu-list">
+                <div className="vm-edu-item">
+                  <span className="vm-edu-school">Azerbaijan Technical University</span>
+                  <span className="vm-edu-degree">Process Automation Engineering</span>
+                  <span className="vm-edu-year">2020 – 2024</span>
+                </div>
+                <div className="vm-edu-item">
+                  <span className="vm-edu-school">Baku College of Management and Technology</span>
+                  <span className="vm-edu-degree">Automation of Information Processing and Management</span>
+                  <span className="vm-edu-year">2014 – 2017</span>
+                </div>
+              </div>
+              <h4 className="vm-about-col-title" style={{marginTop:"28px"}}>Certifications</h4>
+              <div className="vm-edu-list">
+                <div className="vm-edu-item">
+                  <span className="vm-edu-school">Teachable — iOS Development - SwiftUI | Sean Allen</span>
+                  <span className="vm-edu-year">2025 – 2026</span>
+                </div>
+                <div className="vm-edu-item">
+                  <span className="vm-edu-school">Meta — Programming with JavaScript</span>
+                  <span className="vm-edu-year">2025 – 2026</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="vm-about-cta">
             <a className="vm-btn vm-btn-dark" href="https://www.linkedin.com/in/ayselmohbaliyeva8/" target="_blank" rel="noreferrer">LinkedIn</a>
@@ -479,7 +515,7 @@ html{scroll-behavior:smooth}
 .vm-showcase-title{text-align:center;font-size:clamp(28px,4vw,44px);font-weight:200;margin-bottom:60px;letter-spacing:.02em}
 .vm-show-item{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center;max-width:1100px;margin:0 auto 80px;opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.2,.7,.2,1)}
 .vm-show-item.on{opacity:1;transform:none}
-.vm-show-gallery{position:relative;height:380px;display:flex;justify-content:center;align-items:center}
+.vm-show-gallery{position:relative;height:420px;display:flex;justify-content:center;align-items:center}
 .vm-show-phone{position:absolute;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .vm-show-phone-0{transform:translate(-90px,0) rotate(-8deg);z-index:1}
 .vm-show-phone-1{transform:translate(0,-10px) rotate(0deg);z-index:3}
@@ -514,7 +550,7 @@ html{scroll-behavior:smooth}
   .vm-feature-dark .vm-feature-slider{order:1}
   .vm-show-item{grid-template-columns:1fr;gap:32px;text-align:center}
   .vm-show-info .vm-tags{justify-content:center}
-  .vm-show-gallery{height:320px}
+  .vm-show-gallery{height:360px}
   .vm-show-phone-0{transform:translate(-70px,0) rotate(-8deg)}
   .vm-show-phone-2{transform:translate(70px,0) rotate(8deg)}
   .vm-nav{gap:24px;padding-top:100px}
@@ -524,12 +560,31 @@ html{scroll-behavior:smooth}
   .vm-header-btn{top:16px;left:16px;width:50px;height:50px}
   .vm-header-bg{top:22px;left:22px}
   .vm-hero-img{width:130px;height:130px}
-  .vm-phone{width:190px}
-  .vm-phone-sm{width:140px}
-  .vm-show-phone-0{transform:translate(-50px,0) rotate(-6deg)}
-  .vm-show-phone-2{transform:translate(50px,0) rotate(6deg)}
+  .vm-phone{width:148px}
+  .vm-phone-sm{width:112px}
+  .vm-show-phone-0{transform:translate(-34px,0) rotate(-5deg)}
+  .vm-show-phone-2{transform:translate(34px,0) rotate(5deg)}
   .vm-showcase,.vm-about{padding:60px 20px}
   .vm-show-item{margin-bottom:60px}
   .vm-feature-info{padding:0}
 }
+.vm-about-title{font-size:clamp(26px,3.5vw,40px);font-weight:400;letter-spacing:-.02em;text-align:center;margin-bottom:28px}
+.vm-about-bio{text-align:center;max-width:560px;margin:0 auto 36px;font-size:15px;color:#555;line-height:1.8}
+.vm-about-cols{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:36px;text-align:left;align-items:start}
+.vm-about-col-title{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#c31e00;margin-bottom:14px;padding-bottom:8px;border-bottom:1.5px solid #eee}
+.vm-skill-list{display:flex;flex-direction:column}
+.vm-skill-row{display:grid;grid-template-columns:140px 1fr;gap:12px;padding:9px 0;border-bottom:1px solid #f2f2f2}
+.vm-skill-row:last-child{border-bottom:none}
+.vm-skill-cat{font-size:11px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:.05em;line-height:1.6}
+.vm-skill-val{font-size:13px;color:#333;line-height:1.6}
+.vm-edu-list{display:flex;flex-direction:column}
+.vm-edu-item{display:flex;flex-direction:column;gap:2px;padding:10px 0;border-bottom:1px solid #f2f2f2}
+.vm-edu-item:last-child{border-bottom:none}
+.vm-edu-school{font-size:14px;font-weight:600;color:#111}
+.vm-edu-degree{font-size:13px;color:#555}
+.vm-edu-year{font-size:12px;color:#bbb;margin-top:2px}
+
+@media(max-width:700px){.vm-about-cols{grid-template-columns:1fr;gap:28px}.vm-skill-row{grid-template-columns:1fr;gap:2px}}
+.vm-lang-row{display:flex;gap:24px;flex-wrap:wrap;padding:10px 0}
+.vm-lang-item{font-size:13px;color:#333;line-height:1.6}
 `;
