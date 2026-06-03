@@ -23,10 +23,10 @@ export const Route = createFileRoute("/")({
   component: Portfolio,
 });
 
-const bankShot   = (n: number) => `/screenshots/AZBankMate/${n}.png`;
-const cryptoShot = (n: number) => `/screenshots/CryptoTrack/${n}.png`;
-const steplyShot = (n: number) => `/screenshots/Steply/${n}.png`;
-const discShot   = (n: number) => `/screenshots/DiscountHelper/${n}.png`;
+const bankShot   = (n: number) => `/img/AZBankMate/${n}.png`;
+const cryptoShot = (n: number) => `/img/CryptoTrack/${n}.png`;
+const steplyShot = (n: number) => `/img/Steply/${n}.png`;
+const discShot   = (n: number) => `/img/DiscountHelper/${n}.png`;
 
 type Project = {
   id: string;
