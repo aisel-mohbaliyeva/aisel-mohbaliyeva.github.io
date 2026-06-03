@@ -153,7 +153,7 @@ function ShowcaseItem({ p }: { p: Project }) {
   return (
     <div className="vm-show-item reveal">
       <div className="vm-show-gallery">
-        {p.images.slice(0, 3).map((src, i) => (
+        {p.images.slice(0, 4).map((src, i) => (
           <div key={i} className={`vm-show-phone vm-show-phone-${i}`}>
             <div className="vm-phone vm-phone-sm">
               <span className="vm-phone-notch" />
