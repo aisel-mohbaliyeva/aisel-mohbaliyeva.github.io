@@ -515,7 +515,7 @@ html{scroll-behavior:smooth}
 .vm-showcase-title{text-align:center;font-size:clamp(28px,4vw,44px);font-weight:200;margin-bottom:60px;letter-spacing:.02em}
 .vm-show-item{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center;max-width:1100px;margin:0 auto 80px;opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.2,.7,.2,1)}
 .vm-show-item.on{opacity:1;transform:none}
-.vm-show-gallery{position:relative;height:420px;display:flex;justify-content:center;align-items:center}
+.vm-show-gallery{position:relative;height:380px;display:flex;justify-content:center;align-items:center}
 .vm-show-phone{position:absolute;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .vm-show-phone-0{transform:translate(-90px,0) rotate(-8deg);z-index:1}
 .vm-show-phone-1{transform:translate(0,-10px) rotate(0deg);z-index:3}
@@ -550,7 +550,7 @@ html{scroll-behavior:smooth}
   .vm-feature-dark .vm-feature-slider{order:1}
   .vm-show-item{grid-template-columns:1fr;gap:32px;text-align:center}
   .vm-show-info .vm-tags{justify-content:center}
-  .vm-show-gallery{height:360px}
+  .vm-show-gallery{height:320px}
   .vm-show-phone-0{transform:translate(-70px,0) rotate(-8deg)}
   .vm-show-phone-2{transform:translate(70px,0) rotate(8deg)}
   .vm-nav{gap:24px;padding-top:100px}
@@ -560,10 +560,10 @@ html{scroll-behavior:smooth}
   .vm-header-btn{top:16px;left:16px;width:50px;height:50px}
   .vm-header-bg{top:22px;left:22px}
   .vm-hero-img{width:130px;height:130px}
-  .vm-phone{width:148px}
-  .vm-phone-sm{width:112px}
-  .vm-show-phone-0{transform:translate(-34px,0) rotate(-5deg)}
-  .vm-show-phone-2{transform:translate(34px,0) rotate(5deg)}
+  .vm-phone{width:190px}
+  .vm-phone-sm{width:140px}
+  .vm-show-phone-0{transform:translate(-50px,0) rotate(-6deg)}
+  .vm-show-phone-2{transform:translate(50px,0) rotate(6deg)}
   .vm-showcase,.vm-about{padding:60px 20px}
   .vm-show-item{margin-bottom:60px}
   .vm-feature-info{padding:0}
@@ -583,8 +583,7 @@ html{scroll-behavior:smooth}
 .vm-edu-school{font-size:14px;font-weight:600;color:#111}
 .vm-edu-degree{font-size:13px;color:#555}
 .vm-edu-year{font-size:12px;color:#bbb;margin-top:2px}
-
-@media(max-width:700px){.vm-about-cols{grid-template-columns:1fr;gap:28px}.vm-skill-row{grid-template-columns:1fr;gap:2px}}
 .vm-lang-row{display:flex;gap:24px;flex-wrap:wrap;padding:10px 0}
 .vm-lang-item{font-size:13px;color:#333;line-height:1.6}
+@media(max-width:700px){.vm-about-cols{grid-template-columns:1fr;gap:28px}.vm-skill-row{grid-template-columns:1fr;gap:2px}}
 `;
