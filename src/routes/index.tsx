@@ -68,7 +68,7 @@ const exploreAZ: Project = {
   desc: "A tourism guide app for Azerbaijan, designed to help tourists and visitors explore the country independently. Browse cities, discover attractions, plan itineraries, and access practical travel information — all in one place.",
   tags: ["SwiftUI", "MapKit", "@Observable", "UserDefaults", "SOLID Principles"],
   github: "https://github.com/aisel-mohbaliyeva/ExploreAZ",
-  images: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(exploreShot),
+  images: [1, 2, 3, 4, 5, 6, 7, 8].map(exploreShot),
 };
 
 const showcase: Project[] = [
