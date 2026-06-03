@@ -90,7 +90,7 @@ const showcase: Project[] = [
       "Discount calculator with 5 currencies, calculation history, share sheet, spring animations and haptic feedback. Persistence via UserDefaults.",
     tags: ["SwiftUI", "Combine", "MVVM", "@StateObject", "@Published", "@EnvironmentObject", "UserDefaults (Codable)"],
     github: "https://github.com/aisel-mohbaliyeva/DiscountHelper",
-    images: [14, 15, 16, 17].map(discShot),
+    images: [14, 15, 16].map(discShot),
   },
 ];
 
@@ -153,7 +153,7 @@ function ShowcaseItem({ p }: { p: Project }) {
   return (
     <div className="vm-show-item reveal">
       <div className="vm-show-gallery">
-        {p.images.slice(0, 4).map((src, i) => (
+        {p.images.slice(0, 3).map((src, i) => (
           <div key={i} className={`vm-show-phone vm-show-phone-${i}`}>
             <div className="vm-phone vm-phone-sm">
               <span className="vm-phone-notch" />
