@@ -586,4 +586,22 @@ html{scroll-behavior:smooth}
 .vm-lang-row{display:flex;gap:28px;flex-wrap:wrap;padding:10px 0}
 .vm-lang-item{font-size:13px;color:#333;line-height:1.6}
 @media(max-width:700px){.vm-about-cols{grid-template-columns:1fr;gap:32px}.vm-skill-row{grid-template-columns:1fr;gap:2px}.vm-about{padding:80px 24px}}
+.vm-about-title{font-size:clamp(26px,3.5vw,40px);font-weight:400;letter-spacing:-.02em;text-align:center;margin-bottom:28px}
+.vm-about-bio{text-align:center;max-width:560px;margin:0 auto 48px;font-size:15px;color:#555;line-height:1.8}
+.vm-about-cols{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-bottom:48px;text-align:left;align-items:start}
+.vm-about-col-title{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#c31e00;margin-bottom:14px;padding-bottom:8px;border-bottom:1.5px solid #eee}
+.vm-skill-list{display:flex;flex-direction:column}
+.vm-skill-row{display:grid;grid-template-columns:140px 1fr;gap:12px;padding:9px 0;border-bottom:1px solid #f2f2f2}
+.vm-skill-row:last-child{border-bottom:none}
+.vm-skill-cat{font-size:11px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:.05em;line-height:1.6}
+.vm-skill-val{font-size:13px;color:#333;line-height:1.6}
+.vm-edu-list{display:flex;flex-direction:column}
+.vm-edu-item{display:flex;flex-direction:column;gap:2px;padding:10px 0;border-bottom:1px solid #f2f2f2}
+.vm-edu-item:last-child{border-bottom:none}
+.vm-edu-school{font-size:14px;font-weight:600;color:#111}
+.vm-edu-degree{font-size:13px;color:#555}
+.vm-edu-year{font-size:12px;color:#bbb;margin-top:2px}
+.vm-lang-row{display:flex;gap:28px;flex-wrap:wrap;padding:10px 0}
+.vm-lang-item{font-size:13px;color:#333;line-height:1.6}
+@media(max-width:700px){.vm-about-cols{grid-template-columns:1fr;gap:32px}.vm-skill-row{grid-template-columns:1fr;gap:2px}}
 `;
