@@ -459,7 +459,7 @@ html{scroll-behavior:smooth}
 .vm-btn-hollow-dark{background:transparent;border:2px solid #111;color:#111}
 .vm-btn-hollow-dark:hover{transform:translateY(-3px);letter-spacing:.12em;box-shadow:1px 3px 10px rgba(0,0,0,.2)}
 
-.vm-hero{position:relative;min-height:93vh;display:flex;flex-direction:column;justify-content:center;align-items:center;overflow:hidden;animation:vmFadeIn 1s}
+.vm-hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;overflow:hidden;animation:vmFadeIn 1s}
 .vm-deco{position:absolute;bottom:-72%;right:-10%;width:100%;height:100rem;background:linear-gradient(90deg,#fff 0%,#ececec 100%);border-radius:62% 38% 56% 44% / 43% 27% 73% 57%;z-index:-1;animation:vmPulse 15s infinite}
 .vm-deco-2{bottom:-78%;right:-15%;background:linear-gradient(90deg,#fff 0%,#e0e0e0 100%)}
 .vm-hero-info{display:flex;flex-direction:column;align-items:center}
@@ -475,7 +475,7 @@ html{scroll-behavior:smooth}
 @keyframes vmPulse{0%,100%{transform:translateX(0)}25%{transform:translateX(-3%)}50%{transform:translateX(0)}75%{transform:translateX(3%)}}
 @keyframes vmBob{0%,100%{transform:translateY(0);opacity:1}50%{transform:translateY(8px);opacity:.4}}
 
-.vm-feature{min-height:90vh;display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:80px 48px;align-items:center}
+.vm-feature{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:80px 48px;align-items:center}
 .vm-feature-red{background:#c31e00;color:#fff}
 .vm-feature-dark{background:#2c2c2e;color:#fff}
 .vm-feature-exploreaz{background:linear-gradient(135deg,#0092BC 0%,#003d7a 40%,#c0392b 72%,#00956a 100%);color:#fff;position:relative;overflow:hidden}
@@ -487,9 +487,9 @@ html{scroll-behavior:smooth}
 .vm-feature-info h2{font-size:clamp(32px,5vw,56px);margin-bottom:20px;font-weight:700;letter-spacing:-.02em}
 .vm-feature-info p{font-size:16px;line-height:1.7;margin-bottom:20px;opacity:.92}
 .vm-feature-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
-.vm-feature-slider{display:flex;justify-content:center;align-items:center;padding:24px;overflow:hidden}
+.vm-feature-slider{display:flex;justify-content:center;align-items:center;padding:24px}
 
-.vm-slider{position:relative;width:100%;max-width:340px;overflow:hidden;padding:0 36px}
+.vm-slider{position:relative;width:100%;max-width:300px;overflow:hidden;padding:0 36px}
 .vm-slider-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.2);border:none;width:36px;height:36px;border-radius:999px;color:#fff;cursor:pointer;z-index:5;display:flex;align-items:center;justify-content:center;transition:all .2s}
 .vm-slider-btn:hover{background:rgba(0,0,0,.45);transform:translateY(-50%) scale(1.1)}
 .vm-slider-btn svg{width:18px;height:18px}
