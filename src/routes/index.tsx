@@ -27,6 +27,7 @@ const bankShot   = (n: number) => `/img/AZBankMate/${n}.png`;
 const cryptoShot = (n: number) => `/img/CryptoTrack/${n}.png`;
 const steplyShot = (n: number) => `/img/Steply/${n}.png`;
 const discShot   = (n: number) => `/img/DiscountHelper/${n}.png`;
+const exploreShot = (n: number) => `/img/ExploreAZ/${n}.png`;
 
 type Project = {
   id: string;
@@ -58,6 +59,16 @@ const featured2: Project = {
   tags: ["SwiftUI", "Swift Charts", "MVVM", "Combine", "URLSession", "async/await", "UserDefaults", "CoinGecko API"],
   github: "https://github.com/aisel-mohbaliyeva/Crypto-Track_API",
   images: [7, 8, 9, 10].map(cryptoShot),
+};
+
+const exploreAZ: Project = {
+  id: "exploreaz",
+  name: "ExploreAZ",
+  tagline: "Tourism · Azerbaijan",
+  desc: "A tourism guide app for Azerbaijan, designed to help tourists and visitors explore the country independently. Browse cities, discover attractions, plan itineraries, and access practical travel information — all in one place.",
+  tags: ["SwiftUI", "MapKit", "@Observable", "UserDefaults", "SOLID Principles"],
+  github: "https://github.com/aisel-mohbaliyeva/ExploreAZ",
+  images: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(exploreShot),
 };
 
 const showcase: Project[] = [
@@ -229,6 +240,7 @@ function Portfolio() {
             <ul>
               <li><a href="#azbankmate" onClick={() => setMenuOpen(false)}>AZ BankMate</a></li>
               <li><a href="#cryptotrack" onClick={() => setMenuOpen(false)}>Crypto Track</a></li>
+              <li><a href="#exploreaz" onClick={() => setMenuOpen(false)}>ExploreAZ</a></li>
               <li><a href="#steply" onClick={() => setMenuOpen(false)}>Steply</a></li>
               <li><a href="#discounthelper" onClick={() => setMenuOpen(false)}>Discount Helper</a></li>
             </ul>
@@ -310,6 +322,25 @@ function Portfolio() {
         </div>
         <div className="vm-feature-slider">
           <Slider images={featured2.images} />
+        </div>
+      </section>
+
+      <section className="vm-feature vm-feature-exploreaz reveal" id="exploreaz">
+        <div className="vm-feature-slider">
+          <Slider images={exploreAZ.images} />
+        </div>
+        <div className="vm-feature-info vm-exploreaz-info">
+          <div className="vm-exploreaz-badge">🇦🇿 Azerbaijan</div>
+          <h2>{exploreAZ.name}</h2>
+          <p>{exploreAZ.desc}</p>
+          <div className="vm-tags vm-tags-light">
+            {exploreAZ.tags.map((t) => <span key={t}>{t}</span>)}
+          </div>
+          <div className="vm-feature-cta">
+            <a href={exploreAZ.github} target="_blank" rel="noreferrer" className="vm-btn vm-btn-dark">
+              <GithubIcon /> GitHub
+            </a>
+          </div>
         </div>
       </section>
 
@@ -411,6 +442,11 @@ html{scroll-behavior:smooth}
 .vm-feature{min-height:90vh;display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:80px 48px;align-items:center}
 .vm-feature-red{background:#c31e00;color:#fff}
 .vm-feature-dark{background:#2c2c2e;color:#fff}
+.vm-feature-exploreaz{background:linear-gradient(135deg,#0092BC 0%,#003d7a 40%,#c0392b 72%,#00956a 100%);color:#fff;position:relative;overflow:hidden}
+.vm-feature-exploreaz::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(255,255,255,.06) 0%,transparent 60%),radial-gradient(circle at 80% 20%,rgba(255,255,255,.04) 0%,transparent 50%);pointer-events:none}
+.vm-exploreaz-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:6px 16px;border-radius:100px;font-size:13px;font-weight:600;letter-spacing:.05em;margin-bottom:18px;backdrop-filter:blur(8px);animation:badgePulse 3s ease-in-out infinite}
+@keyframes badgePulse{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.3)}50%{box-shadow:0 0 0 10px rgba(255,255,255,0)}}
+.vm-exploreaz-info h2{font-size:clamp(36px,5vw,64px);background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,.8) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .vm-feature-info{max-width:520px;margin:0 auto;padding:24px}
 .vm-feature-info h2{font-size:clamp(32px,5vw,56px);margin-bottom:20px;font-weight:700;letter-spacing:-.02em}
 .vm-feature-info p{font-size:16px;line-height:1.7;margin-bottom:20px;opacity:.92}
