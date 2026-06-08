@@ -28,6 +28,7 @@ const cryptoShot = (n: number) => `/img/CryptoTrack/${n}.png`;
 const steplyShot = (n: number) => `/img/Steply/${n}.png`;
 const discShot   = (n: number) => `/img/DiscountHelper/${n}.png`;
 const exploreShot = (n: number) => `/img/ExploreAZ/${n}.png`;
+const echoShot = (n: number) => `/img/EchoChat/${n}.png`;
 
 type Project = {
   id: string;
@@ -50,15 +51,12 @@ const featured1: Project = {
   images: [1, 2, 3, 4, 5, 6].map(bankShot),
 };
 
-const featured2: Project = {
-  id: "cryptotrack",
-  name: "Crypto Track",
-  tagline: "Crypto · Live API",
-  desc:
-    "Live prices for the top 50 cryptocurrencies with 7-day sparkline charts, favorites and a personal portfolio tracker. Powered by the CoinGecko API and built with Combine.",
-  tags: ["SwiftUI", "Swift Charts", "MVVM", "Combine", "URLSession", "async/await", "UserDefaults", "CoinGecko API"],
-  github: "https://github.com/aisel-mohbaliyeva/Crypto-Track_API",
-  images: [7, 8, 9, 10].map(cryptoShot),
+const featured3 = {
+  id: 'echochat', name: 'EchoChat', tagline: 'Chat · Firebase',
+  desc: 'Firebase-powered real-time iOS chat app. Authentication, live messaging with Cloud Firestore, clean modern interface.',
+  tags: ['SwiftUI', 'Swift Concurrency', 'Firebase Auth', 'Cloud Firestore', 'MVVM', '@Observable'],
+  github: 'https://github.com/aisel-mohbaliyeva/EchoChat',
+  images: [1,2,3].map(echoShot),
 };
 
 const exploreAZ: Project = {
@@ -71,6 +69,16 @@ const exploreAZ: Project = {
   images: [1, 2, 3, 4, 5, 6, 7, 8].map(exploreShot),
 };
 
+const featured2: Project = {
+  id: "cryptotrack",
+  name: "Crypto Track",
+  tagline: "Crypto · Live API",
+  desc:
+    "Live prices for the top 50 cryptocurrencies with 7-day sparkline charts, favorites and a personal portfolio tracker. Powered by the CoinGecko API and built with Combine.",
+  tags: ["SwiftUI", "Swift Charts", "MVVM", "Combine", "URLSession", "async/await", "UserDefaults", "CoinGecko API"],
+  github: "https://github.com/aisel-mohbaliyeva/Crypto-Track_API",
+  images: [7, 8, 9, 10].map(cryptoShot),
+};
 const showcase: Project[] = [
   {
     id: "steply",
@@ -240,6 +248,7 @@ function Portfolio() {
             <ul>
               <li><a href="#azbankmate" onClick={() => setMenuOpen(false)}>AZ BankMate</a></li>
               <li><a href="#cryptotrack" onClick={() => setMenuOpen(false)}>Crypto Track</a></li>
+              <li><a href="#echochat" onClick={() => setMenuOpen(false)}>EchoChat</a></li>
               <li><a href="#exploreaz" onClick={() => setMenuOpen(false)}>ExploreAZ</a></li>
               <li><a href="#steply" onClick={() => setMenuOpen(false)}>Steply</a></li>
               <li><a href="#discounthelper" onClick={() => setMenuOpen(false)}>Discount Helper</a></li>
@@ -344,6 +353,7 @@ function Portfolio() {
         </div>
       </section>
 
+      
       <section className="vm-showcase" id="showcase">
         <h2 className="vm-showcase-title">More Apps & Projects</h2>
         {showcase.map((p) => (
@@ -353,52 +363,54 @@ function Portfolio() {
         ))}
       </section>
 
+      <section className="vm-echochat-section reveal" id="echochat">
+        <div className="vm-echochat-left" style={{maxWidth:"520px",paddingLeft:"48px"}}>
+          <p className="vm-echochat-label">{featured3.tagline}</p>
+          <h2 style={{fontSize:"clamp(32px,5vw,56px)",fontWeight:700,letterSpacing:"-.02em",marginBottom:"20px",lineHeight:1.1}}>{featured3.name}</h2>
+          <p className="vm-echochat-desc">{featured3.desc}</p>
+          <div className="vm-tags vm-tags-echo">{featured3.tags.map((t) => <span key={t}>{t}</span>)}</div>
+          <div className="vm-feature-cta">
+            <a href={featured3.github} target="_blank" rel="noreferrer" className="vm-btn vm-btn-echo"><GithubIcon /> GitHub</a>
+          </div>
+        </div>
+        <div className="vm-echochat-right">
+          {featured3.images.map((s, i) => (
+            <div key={i} className="vm-echochat-card">
+              <div className="vm-phone"><PhoneImg src={s} /></div>
+            </div>
+          ))}
+        </div>
+      </section>
       <section className="vm-about reveal" id="contact">
         <div className="vm-about-inner">
           <h2 className="vm-about-title">About Aysel</h2>
-          <p className="vm-about-bio">
-            I am an enthusiastic iOS Developer building mobile applications with Swift and SwiftUI. I started my programming journey in 2025. My main interest and focus is iOS development.
-          </p>
+          <p className="vm-about-bio">I am an enthusiastic iOS Developer building mobile applications with Swift and SwiftUI. I started my programming journey in 2025. My main interest and focus is iOS development.</p>
           <div className="vm-about-cols">
+            <div className="vm-about-col">
+              <h4 className="vm-about-col-title">Education</h4>
+              <div className="vm-edu-list">
+                <div className="vm-edu-item"><span className="vm-edu-school">Azerbaijan Technical University</span><span className="vm-edu-degree">Process Automation Engineering</span><span className="vm-edu-year">2020 – 2024</span></div>
+                <div className="vm-edu-item"><span className="vm-edu-school">Baku College of Management and Technology</span><span className="vm-edu-degree">Automation of Information Processing and Management</span><span className="vm-edu-year">2014 – 2017</span></div>
+              </div>
+              <h4 className="vm-about-col-title" style={{marginTop:'28px'}}>Certifications</h4>
+              <div className="vm-edu-list">
+                <div className="vm-edu-item"><span className="vm-edu-school">Teachable — iOS Development</span><span className="vm-edu-year">2025 – 2026</span></div>
+                <div className="vm-edu-item"><span className="vm-edu-school">Meta — Programming with JavaScript</span><span className="vm-edu-year">2025 – 2026</span></div>
+              </div>
+            </div>
             <div className="vm-about-col">
               <h4 className="vm-about-col-title">Technical Skills</h4>
               <div className="vm-skill-list">
                 <div className="vm-skill-row"><span className="vm-skill-cat">Languages &amp; Frameworks</span><span className="vm-skill-val">Swift · SwiftUI · Swift Charts</span></div>
-                <div className="vm-skill-row"><span className="vm-skill-cat">Tools &amp; Workflow</span><span className="vm-skill-val">Xcode · Git · GitHub · Git Flow · Jira · Agile/Scrum · Notion · CI/CD</span></div>
+                <div className="vm-skill-row"><span className="vm-skill-cat">Tools &amp; Workflow</span><span className="vm-skill-val">Xcode · Git · GitHub · Git Flow · Jira · Agile/Scrum · Notion</span></div>
                 <div className="vm-skill-row"><span className="vm-skill-cat">Networking &amp; Cloud</span><span className="vm-skill-val">async/await · REST APIs · JSON · URLSession · Firebase</span></div>
                 <div className="vm-skill-row"><span className="vm-skill-cat">Data &amp; Storage</span><span className="vm-skill-val">Core Data · HealthKit · UserDefaults</span></div>
-                <div className="vm-skill-row"><span className="vm-skill-cat">Architecture &amp; Design</span><span className="vm-skill-val">MVVM · OOP · SOLID Principles</span></div>
+                <div className="vm-skill-row"><span className="vm-skill-cat">Architecture &amp; Design</span><span className="vm-skill-val">MVVM · OOP · SOLID</span></div>
               </div>
-              <h4 className="vm-about-col-title" style={{marginTop:"28px"}}>Languages</h4>
+              <h4 className="vm-about-col-title" style={{marginTop:'28px'}}>Languages</h4>
               <div className="vm-lang-row">
                 <span className="vm-lang-item"><strong>Azerbaijani</strong> — Native</span>
                 <span className="vm-lang-item"><strong>English</strong> — B1 (Technical English)</span>
-              </div>
-            </div>
-            <div className="vm-about-col">
-              <h4 className="vm-about-col-title">Education</h4>
-              <div className="vm-edu-list">
-                <div className="vm-edu-item">
-                  <span className="vm-edu-school">Azerbaijan Technical University</span>
-                  <span className="vm-edu-degree">Process Automation Engineering</span>
-                  <span className="vm-edu-year">2020 – 2024</span>
-                </div>
-                <div className="vm-edu-item">
-                  <span className="vm-edu-school">Baku College of Management and Technology</span>
-                  <span className="vm-edu-degree">Automation of Information Processing and Management</span>
-                  <span className="vm-edu-year">2014 – 2017</span>
-                </div>
-              </div>
-              <h4 className="vm-about-col-title" style={{marginTop:"28px"}}>Certifications</h4>
-              <div className="vm-edu-list">
-                <div className="vm-edu-item">
-                  <span className="vm-edu-school">Teachable — iOS Development - SwiftUI | Sean Allen</span>
-                  <span className="vm-edu-year">2025 – 2026</span>
-                </div>
-                <div className="vm-edu-item">
-                  <span className="vm-edu-school">Meta — Programming with JavaScript</span>
-                  <span className="vm-edu-year">2025 – 2026</span>
-                </div>
               </div>
             </div>
           </div>
@@ -604,4 +616,47 @@ html{scroll-behavior:smooth}
 .vm-lang-row{display:flex;gap:28px;flex-wrap:wrap;padding:10px 0}
 .vm-lang-item{font-size:13px;color:#333;line-height:1.6}
 @media(max-width:700px){.vm-about-cols{grid-template-columns:1fr;gap:32px}.vm-skill-row{grid-template-columns:1fr;gap:2px}}
+.vm-feature-echochat{background:linear-gradient(135deg,#0f0c29,#1a1a4e,#24243e);color:#fff;position:relative;overflow:hidden}
+.vm-feature-echochat::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(99,102,241,.25) 0%,transparent 65%);pointer-events:none}
+.vm-echochat-gallery{position:relative;display:flex;align-items:center;justify-content:center;height:480px}
+.vm-echochat-phone{position:absolute;transition:transform .4s cubic-bezier(0.16,1,0.3,1)}
+.vm-echochat-phone-0{transform:translateX(-90px) rotate(-6deg) scale(0.88);z-index:1}
+.vm-echochat-phone-1{transform:translateX(0px) rotate(0deg) scale(1);z-index:3}
+.vm-echochat-phone-2{transform:translateX(90px) rotate(6deg) scale(0.88);z-index:2}
+.vm-feature-echochat:hover .vm-echochat-phone-0{transform:translateX(-120px) rotate(-9deg) scale(0.86)}
+.vm-feature-echochat:hover .vm-echochat-phone-2{transform:translateX(120px) rotate(9deg) scale(0.86)}
+.vm-about-title{font-size:clamp(26px,3.5vw,40px);font-weight:400;letter-spacing:-.02em;text-align:center;margin-bottom:28px}
+.vm-about-bio{text-align:center;max-width:560px;margin:0 auto 48px;font-size:15px;color:#555;line-height:1.8}
+.vm-about-cols{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-bottom:48px;text-align:left;align-items:start}
+.vm-about-col-title{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#c31e00;margin-bottom:14px;padding-bottom:8px;border-bottom:1.5px solid #eee}
+.vm-skill-list{display:flex;flex-direction:column}
+.vm-skill-row{display:grid;grid-template-columns:140px 1fr;gap:12px;padding:9px 0;border-bottom:1px solid #f2f2f2}
+.vm-skill-row:last-child{border-bottom:none}
+.vm-skill-cat{font-size:11px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:.05em;line-height:1.6}
+.vm-skill-val{font-size:13px;color:#333;line-height:1.6}
+.vm-edu-list{display:flex;flex-direction:column}
+.vm-edu-item{display:flex;flex-direction:column;gap:2px;padding:10px 0;border-bottom:1px solid #f2f2f2}
+.vm-edu-item:last-child{border-bottom:none}
+.vm-edu-school{font-size:14px;font-weight:600;color:#111}
+.vm-edu-degree{font-size:13px;color:#555}
+.vm-edu-year{font-size:12px;color:#bbb;margin-top:2px}
+.vm-lang-row{display:flex;gap:28px;flex-wrap:wrap;padding:10px 0}
+.vm-lang-item{font-size:13px;color:#333;line-height:1.6}
+@media(max-width:700px){.vm-about-cols{grid-template-columns:1fr;gap:32px}.vm-skill-row{grid-template-columns:1fr;gap:2px}.vm-echochat-gallery{height:360px}.vm-echochat-phone-0{transform:translateX(-55px) rotate(-5deg) scale(0.88)}.vm-echochat-phone-2{transform:translateX(55px) rotate(5deg) scale(0.88)}}
+.vm-echochat-section{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:80px 80px;align-items:center;background:linear-gradient(135deg,#0f0c29,#1a1a4e,#24243e);color:#fff;overflow:hidden;position:relative}
+.vm-echochat-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(99,102,241,.2) 0%,transparent 60%);pointer-events:none}
+.vm-echochat-left{position:relative;z-index:1}
+.vm-echochat-right{display:flex;gap:20px;align-items:flex-end;justify-content:center;position:relative;z-index:1}
+.vm-echochat-card{flex-shrink:0}
+.vm-echochat-card:nth-child(1){transform:translateY(30px)}
+.vm-echochat-card:nth-child(2){transform:translateY(0px)}
+.vm-echochat-card:nth-child(3){transform:translateY(50px)}
+.vm-echochat-section:hover .vm-echochat-card:nth-child(1){transform:translateY(20px);transition:transform .4s}
+.vm-echochat-section:hover .vm-echochat-card:nth-child(3){transform:translateY(40px);transition:transform .4s}
+.vm-tags-echo span{background:rgba(255,255,255,.12);color:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.2)}
+@media(max-width:700px){.vm-echochat-section{grid-template-columns:1fr;padding:60px 20px;gap:40px}.vm-echochat-right{gap:12px}}
+.vm-echochat-label{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:12px}
+.vm-echochat-title{font-size:clamp(32px,5vw,56px);font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-bottom:20px;color:#fff;font-family:inherit}
+.vm-echochat-desc{font-size:16px;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:28px;font-weight:300}
+.vm-btn-echo{background:#c31e00;color:#fff;border:none}
 `;
