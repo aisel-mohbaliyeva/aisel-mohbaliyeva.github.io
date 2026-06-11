@@ -394,9 +394,9 @@ function Portfolio() {
               </div>
               <h4 className="vm-about-col-title" style={{marginTop:'28px'}}>Certifications</h4>
               <div className="vm-edu-list">
-                <div className="vm-edu-item"><span className="vm-edu-school">Teachable — iOS Development | SwiftUI</span><span className="vm-edu-year">2025 – 2026</span></div>
-                <div className="vm-edu-item"><span className="vm-edu-school">Hacking with Swift — 100 Days of Swift</span><span className="vm-edu-year">2025 – 2026</span></div>
-                <div className="vm-edu-item"><span className="vm-edu-school">Meta — Programming with JavaScript</span><span className="vm-edu-year">2025 – 2026</span></div>
+                <div className="vm-edu-item"><span className="vm-edu-school">Teachable — iOS Development | Sean Allen</span><span className="vm-edu-year">Mar 2025 – May 2026</span></div>
+                <div className="vm-edu-item"><span className="vm-edu-school">Hacking with Swift — 100 Days of Swift</span><span className="vm-edu-year">Dec 2025 – Mar 2026</span></div>
+                <div className="vm-edu-item"><span className="vm-edu-school">Meta — Programming with JavaScript</span><span className="vm-edu-year">Sep 2025 – Feb 2026</span></div>
               </div>
             </div>
             <div className="vm-about-col">
