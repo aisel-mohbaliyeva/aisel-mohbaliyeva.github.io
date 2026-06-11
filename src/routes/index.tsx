@@ -394,9 +394,9 @@ function Portfolio() {
               </div>
               <h4 className="vm-about-col-title" style={{marginTop:'28px'}}>Certifications</h4>
               <div className="vm-edu-list">
-                <div className="vm-edu-item"><span className="vm-edu-school">Teachable — iOS Development | Sean Allen</span><span className="vm-edu-year">Mar 2025 – May 2026</span></div>
-                <div className="vm-edu-item"><span className="vm-edu-school">Hacking with Swift — 100 Days of Swift</span><span className="vm-edu-year">Dec 2025 – Mar 2026</span></div>
-                <div className="vm-edu-item"><span className="vm-edu-school">Meta — Programming with JavaScript</span><span className="vm-edu-year">Sep 2025 – Feb 2026</span></div>
+                <div className="vm-edu-item"><span className="vm-edu-school">Teachable</span><span className="vm-edu-degree"> · iOS Development | Sean Allen</span><span className="vm-edu-year">Mar 2025 – May 2026</span></div>
+                <div className="vm-edu-item"><span className="vm-edu-school">Hacking with Swift</span><span className="vm-edu-degree"> · 100 Days of Swift</span><span className="vm-edu-year">Dec 2025 – Mar 2026</span></div>
+                <div className="vm-edu-item"><span className="vm-edu-school">Meta</span><span className="vm-edu-degree"> · Programming with JavaScript</span><span className="vm-edu-year">Sep 2025 – Feb 2026</span></div>
               </div>
             </div>
             <div className="vm-about-col">
@@ -593,8 +593,8 @@ html{scroll-behavior:smooth}
 .vm-edu-list{display:flex;flex-direction:column}
 .vm-edu-item{display:flex;flex-direction:column;gap:2px;padding:10px 0;border-bottom:1px solid #f2f2f2}
 .vm-edu-item:last-child{border-bottom:none}
-.vm-edu-school{font-size:14px;font-weight:600;color:#111}
-.vm-edu-degree{font-size:13px;color:#555}
+.vm-edu-school{font-size:14px;font-weight:600;color:#111;display:inline}
+.vm-edu-degree{font-size:13px;color:#555;display:inline}
 .vm-edu-year{font-size:12px;color:#bbb;margin-top:2px}
 .vm-lang-row{display:flex;gap:28px;flex-wrap:wrap;padding:10px 0}
 .vm-lang-item{font-size:13px;color:#333;line-height:1.6}
