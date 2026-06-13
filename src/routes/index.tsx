@@ -402,7 +402,7 @@ function Portfolio() {
             <div className="vm-about-col">
               <h4 className="vm-about-col-title">Technical Skills</h4>
               <div className="vm-skill-list">
-                <div className="vm-skill-row"><span className="vm-skill-cat">Languages &amp; Frameworks</span><span className="vm-skill-val">Swift · SwiftUI · Swift Charts</span></div>
+                <div className="vm-skill-row"><span className="vm-skill-cat">Languages &amp; Frameworks</span><span className="vm-skill-val">Swift · SwiftUI · UIKit · Swift Charts</span></div>
                 <div className="vm-skill-row"><span className="vm-skill-cat">Tools &amp; Workflow</span><span className="vm-skill-val">Xcode · Git · GitHub · Git Flow · Jira · Agile/Scrum · Notion</span></div>
                 <div className="vm-skill-row"><span className="vm-skill-cat">Networking &amp; Cloud</span><span className="vm-skill-val">async/await · REST APIs · JSON · URLSession · Firebase</span></div>
                 <div className="vm-skill-row"><span className="vm-skill-cat">Data &amp; Storage</span><span className="vm-skill-val">Core Data · HealthKit · UserDefaults</span></div>
