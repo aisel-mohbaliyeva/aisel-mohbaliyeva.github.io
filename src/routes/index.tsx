@@ -412,7 +412,7 @@ function Portfolio() {
               <div className="vm-lang-row">
                 <span className="vm-lang-item"><strong>Azerbaijani</strong> — Native</span>
                 <span className="vm-lang-item"><strong>Turkish</strong> — C2</span>
-                <span className="vm-lang-item"><strong>English</strong> — B2</span>
+                <span className="vm-lang-item"><strong>English</strong> — B1</span>
               </div>
             </div>
           </div>
