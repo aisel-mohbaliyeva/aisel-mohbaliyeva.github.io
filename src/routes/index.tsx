@@ -29,6 +29,7 @@ const steplyShot = (n: number) => `/img/Steply/${n}.png`;
 const discShot   = (n: number) => `/img/DiscountHelper/${n}.png`;
 const exploreShot = (n: number) => `/img/ExploreAZ/${n}.png`;
 const echoShot = (n: number) => `/img/EchoChat/${n}.png`;
+const walletShot = (n: number) => `/img/WalletWise/${n}.png`;
 
 type Project = {
   id: string;
@@ -51,6 +52,14 @@ const featured1: Project = {
   images: [1, 2, 3, 4, 5, 6].map(bankShot),
 };
 
+const featuredWallet = {
+  id: 'walletwise', name: 'WalletWise', tagline: 'Finance · MLH GHW 2026',
+  desc: 'Personal finance tracker built during MLH Global Hack Week: Hacking for Good. Track income and expenses across 12 categories, set monthly budgets with animated progress, browse transactions by calendar, and switch between 30 international currencies — all stored locally with SwiftData.',
+  tags: ['SwiftUI', 'SwiftData', '@Observable', 'MVVM', 'UserDefaults', 'SOLID'],
+  github: 'https://github.com/aisel-mohbaliyeva/WalletWise-MLH-GHW2026',
+  youtube: 'https://youtube.com/shorts/piodfxxrGD8',
+  images: [1,2,3,4,5].map(walletShot),
+};
 const featured3 = {
   id: 'echochat', name: 'EchoChat', tagline: 'Chat · Firebase',
   desc: 'Firebase-powered real-time iOS chat app. Authentication, live messaging with Cloud Firestore, clean modern interface.',
@@ -248,10 +257,11 @@ function Portfolio() {
             <ul>
               <li><a href="#azbankmate" onClick={() => setMenuOpen(false)}>AZ BankMate</a></li>
               <li><a href="#cryptotrack" onClick={() => setMenuOpen(false)}>Crypto Track</a></li>
-              <li><a href="#echochat" onClick={() => setMenuOpen(false)}>EchoChat</a></li>
               <li><a href="#exploreaz" onClick={() => setMenuOpen(false)}>ExploreAZ</a></li>
               <li><a href="#steply" onClick={() => setMenuOpen(false)}>Steply</a></li>
               <li><a href="#discounthelper" onClick={() => setMenuOpen(false)}>Discount Helper</a></li>
+              <li><a href="#echochat" onClick={() => setMenuOpen(false)}>EchoChat</a></li>
+              <li><a href="#walletwise" onClick={() => setMenuOpen(false)}>WalletWise</a></li>
             </ul>
           </div>
           <div className="vm-nav-item">
@@ -334,6 +344,7 @@ function Portfolio() {
         </div>
       </section>
 
+      
       <section className="vm-feature vm-feature-exploreaz reveal" id="exploreaz">
         <div className="vm-feature-slider">
           <Slider images={exploreAZ.images} />
@@ -353,6 +364,7 @@ function Portfolio() {
         </div>
       </section>
 
+      
       
       <section className="vm-showcase" id="showcase">
         <h2 className="vm-showcase-title">More Apps & Projects</h2>
@@ -381,6 +393,26 @@ function Portfolio() {
           ))}
         </div>
       </section>
+
+      <section className="vm-feature vm-walletwise reveal" id="walletwise">
+        <div className="vm-feature-slider">
+          <Slider images={featuredWallet.images} />
+        </div>
+        <div className="vm-feature-info">
+          <p className="vm-feature-label">{featuredWallet.tagline}</p>
+          <h2>{featuredWallet.name}</h2>
+          <p>{featuredWallet.desc}</p>
+          <div className="vm-tags vm-tags-ww">{featuredWallet.tags.map((t) => <span key={t}>{t}</span>)}</div>
+          <div className="vm-feature-cta">
+            <a href={featuredWallet.github} target="_blank" rel="noreferrer" className="vm-btn vm-btn-dark"><GithubIcon /> GitHub</a>
+            <a href={featuredWallet.youtube} target="_blank" rel="noreferrer" className="vm-btn vm-btn-dark">Demo</a>
+          </div>
+        </div>
+      </section>
+
+      
+
+      
       <section className="vm-about reveal" id="contact">
         <div className="vm-about-inner">
           <h2 className="vm-about-title">About Aysel</h2>
@@ -661,4 +693,17 @@ html{scroll-behavior:smooth}
 .vm-echochat-title{font-size:clamp(32px,5vw,56px);font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-bottom:20px;color:#fff;font-family:inherit}
 .vm-echochat-desc{font-size:16px;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:28px;font-weight:300}
 .vm-btn-echo{background:#c31e00;color:#fff;border:none}
+.vm-walletwise{min-height:100vh;background:linear-gradient(135deg,#7c5cbf,#9b7fd4,#b89ee0);color:#fff;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:80px;overflow:hidden;position:relative}
+.vm-walletwise::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(99,179,237,.1) 0%,transparent 60%);pointer-events:none}
+.vm-ww-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;width:100%;position:relative;z-index:1}
+.vm-ww-left{max-width:480px}
+.vm-ww-label{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:12px}
+.vm-ww-desc{font-size:15px;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:28px;font-weight:300}
+.vm-tags-ww span{background:rgba(255,255,255,.1);color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.15)}
+.vm-ww-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.vm-ww-col{display:flex;flex-direction:column;gap:16px;align-items:center}
+.vm-ww-card{display:flex;justify-content:center}
+.vm-ww-card .vm-phone{width:150px}
+.vm-ww-tall .vm-phone{width:180px}
+@media(max-width:700px){.vm-walletwise{padding:60px 20px}.vm-ww-inner{grid-template-columns:1fr;gap:40px}}
 `;
